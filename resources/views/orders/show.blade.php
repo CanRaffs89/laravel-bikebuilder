@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 @section('content')
     <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0">
         <div>
@@ -7,6 +7,11 @@
             <p>Wheels are {{ $order->wheels }}</p>
             <p>Handlebars are {{ $order->handlebars }}</p>
         </div>
+        <form action="/orders/{{ $order->id }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button>Complete Order</button>
+        </form>
         <a href="/orders"><- Back to Orders</a>
     </div>
 @endsection

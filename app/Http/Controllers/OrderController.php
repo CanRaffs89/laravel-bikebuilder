@@ -8,17 +8,17 @@ use App\Models\Order;
 class OrderController extends Controller
 {
     public function index() {
-        $bikes = Order::latest()->get();
-        return view('bikes.index', ['bikes' => $bikes]);
+        $orders = Order::latest()->get();
+        return view('orders.index', ['orders' => $orders]);
     }
 
     public function show($id) {
         $order = Order::findOrFail($id);
-        return view('bikes.show', ['order' => $order]);
+        return view('orders.show', ['order' => $order]);
     }
 
     public function create() {
-        return view('bikes.create');
+        return view('orders.create');
     }
 
     public function store() {
@@ -30,5 +30,11 @@ class OrderController extends Controller
         $order->handlebars = request('handlebars');
         $order->save();
         return redirect('/')->with('success-msg', 'Thank you for your order!');
+    }
+
+    public function destroy($id) {
+        $order = Order::findOrFail($id);
+        $order->delete();
+        return redirect('/orders');
     }
 }
