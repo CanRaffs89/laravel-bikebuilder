@@ -17,7 +17,8 @@
 
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-center pt-8 sm:justify-start sm:pt-0 flex-column">
-                <h1>Bike Builder</h1>
+                <img src="/img/logo.png" alt="" class="img-logo">
+                <h1 class="text-center">Bike Builder</h1>
                 <a class="text-center" href="{{ route('orders.create') }}">Create Order</a>
                 <a class="text-center" href="{{ route('orders.index') }}">View Orders</a>
                 <p class="message">{{ session('success-msg') }}</p>
