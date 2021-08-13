@@ -7,11 +7,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/orders', [OrderController:: class, 'index'])->middleware('auth');
-Route::get('/orders/create', [OrderController::class, 'create']);
-Route::post('/orders', [OrderController::class, 'store']);
-Route::get('/orders/{id}', [OrderController:: class, 'show'])->middleware('auth'); 
-Route::delete('/orders/{id}', [OrderController:: class, 'destroy'])->middleware('auth');
+Route::get('/orders', [OrderController:: class, 'index'])->name('orders.index')->middleware('auth');
+Route::get('/orders/create', [OrderController::class, 'create'])->name('orders.create');
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+Route::get('/orders/{id}', [OrderController:: class, 'show'])->name('orders.show')->middleware('auth'); 
+Route::delete('/orders/{id}', [OrderController:: class, 'destroy'])->name('orders.destroy')->middleware('auth');
 
 Auth::routes([
     'register' => false

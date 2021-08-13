@@ -7,12 +7,12 @@
             <p>Wheels are {{ $order->wheels }}</p>
             <p>Handlebars are {{ $order->handlebars }}</p>
         </div>
-        <form action="/orders/{{ $order->id }}" method="POST">
+        <form action="{{ route('orders.destroy', $order->id) }}" method="POST">
             @csrf
             @method('DELETE')
             <button>Complete Order</button>
         </form>
-        <a href="/orders"><- Back to Orders</a>
+        <a href="{{ route('orders.index') }}"><- Back to Orders</a>
     </div>
 @endsection
 
