@@ -1,40 +1,44 @@
 @extends('layouts.app')
+@section('title', 'Cycle Junction | Create Order')
 @section('content')
-    <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0 flex-column">
-        <h1>Create New Order</h1>
-        <form action="/orders" method="POST" class="flex flex-column half-width">
+    <div class="outer-container flex flex-column justify-center margin-auto">
+        <h1 class="margin-auto">Create New Order</h1>
+        <form action="/orders" method="POST" class="flex flex-column width-70 margin-auto">
             @csrf
-            <div class="flex sm:justify-between">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name">
+            <div class="flex justify-between margin-top-30">
+                <label for="name" class="input-label">Name</label>
+                <input type="text" id="name" name="name" placeholder=" Your name" class="input-width">
             </div>
-            <div class="flex sm:justify-between">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email">
+            <div class="flex justify-between margin-top-10">
+                <label for="email" class="input-label">Email</label>
+                <input type="text" id="email" name="email" placeholder=" Your email address" class="input-width">
             </div>
-            <div class="flex sm:justify-between">
-                <label for="frame">Frame Type</label>
-                <select name="frame" id="frame">
+            <div class="flex justify-between margin-top-10">
+                <label for="frame" class="input-label">Frame Type</label>
+                <select name="frame" id="frame" class="input-width">
+                    <option value="" disabled selected hidden>Please select...</option>
                     <option value="alloy">Alloy</option>
                     <option value="steel">Steel</option>
                     <option value="carbon">Carbon</option>
                 </select>
             </div>
-            <div class="flex sm:justify-between">
-                <label for="wheels">Wheel Type</label>
-                <select name="wheels" id="wheels">
+            <div class="flex justify-between margin-top-10">
+                <label for="wheels" class="input-label">Wheel Type</label>
+                <select name="wheels" id="wheels" class="input-width">
+                    <option value="" disabled selected hidden>Please select...</option>
                     <option value="skinny">Skinny</option>
                     <option value="fat">Fat</option>
                 </select>
             </div>
-            <div class="flex sm:justify-between">
-                <label for="handlebars">Handlebars</label>
-                <select name="handlebars" id="handlebars">
+            <div class="flex justify-between margin-top-10">
+                <label for="handlebars" class="input-label">Handlebars</label>
+                <select name="handlebars" id="handlebars" class="input-width">
+                    <option value="" disabled selected hidden>Please select...</option>
                     <option value="road">Road</option>
                     <option value="flat">Flat</option>
                 </select>
             </div>
-            <input type="submit" value="Order Bike">
+            <input type="submit" value="Order Bike" class="btn btn-info margin-top-30">
         </form>
     </div>
 @endsection
