@@ -3,12 +3,33 @@
 @section('content')
     <div class="outer-container margin-auto">
         <div class="inner-container margin-auto flex flex-column">
-            <h1 class="margin-auto">Bike Orders</h1>
-            @foreach($orders as $order)
-                <div>
-                    <h4><a href="/orders/{{ $order->id }}">Order #{{ $order->id }} | {{ $order->name }}</a></h4>
-                </div>
-            @endforeach
+            <h2 class="margin-auto">Bike Orders</h2>
+            <div class="accordion margin-top-10" id="ordersView">
+                <!-- Generate an accordion card for each order -->
+                @foreach($orders as $order)
+                    <div class="card">
+                        <div class="card-header" id="heading{{ $order->id }}">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{ $order->id }}" aria-expanded="true" aria-controls="collapse{{ $order->id }}">
+                                    <h4 class="order-title">Order #{{ $order->id }} | {{ $order->name }}</h4>
+                                </button>
+                            </h2>
+                        </div>
+                        <div class="collapse" id="collapse{{ $order->id }}" aria-labelledby="heading{{ $order->id }}" data-parent="#ordersView">
+                            <div class="card-body">
+                                <p>Frame is {{ $order->frame }}</p>
+                                <p>Wheels are {{ $order->wheels }}</p>
+                                <p>Handlebars are {{ $order->handlebars }}</p>
+                                <form action="{{ route('orders.destroy', $order->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-info">Complete Order</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 @endsection

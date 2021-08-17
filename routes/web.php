@@ -14,6 +14,7 @@ Route::get('/orders/{id}', [OrderController:: class, 'show'])->name('orders.show
 Route::delete('/orders/{id}', [OrderController:: class, 'destroy'])->name('orders.destroy')->middleware('auth');
 
 Auth::routes([
+    // Remove this to re-enable registration
     'register' => false
 ]);
 

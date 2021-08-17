@@ -10044,7 +10044,7 @@ body {
 }
 
 .inner-container {
-  width: 70%;
+  width: 85%;
 }
 
 .margin-auto {
@@ -10070,6 +10070,14 @@ body {
   color: white;
   text-decoration: none;
   font-size: 1.1rem;
+}
+
+.navbar-toggler, .dropdown-menu {
+  border: none;
+}
+
+.desktop-box-shadow {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
 .img-logo-circle {
@@ -10109,6 +10117,10 @@ body {
   width: 70%;
 }
 
+.order-title {
+  text-decoration: none;
+}
+
 @-webkit-keyframes rotation {
   from {
     transform: rotate(0deg);
@@ -10127,6 +10139,10 @@ body {
   }
 }
 @media (max-width: 768px) {
+  .desktop-box-shadow {
+    box-shadow: none;
+  }
+
   .img-logo-circle {
     height: 250px;
     width: 250px;
@@ -10147,5 +10163,9 @@ body {
 
   .input-width {
     width: 100%;
+  }
+
+  .order-title {
+    font-size: 1.1rem;
   }
 }
