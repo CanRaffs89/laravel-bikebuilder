@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in') }}
+                    <h4>Welcome, {{ Auth::user()->name }}</h4>
                     <p><a href="/orders">View All Orders</a></p>
                 </div>
             </div>
