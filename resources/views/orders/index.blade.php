@@ -17,9 +17,9 @@
                         </div>
                         <div class="collapse" id="collapse{{ $order->id }}" aria-labelledby="heading{{ $order->id }}" data-parent="#ordersView">
                             <div class="card-body">
-                                <p>Frame is {{ $order->frame }}</p>
-                                <p>Wheels are {{ $order->wheels }}</p>
-                                <p>Handlebars are {{ $order->handlebars }}</p>
+                                <p><img class="order-component-img" src="/img/frame_logo.png" alt=""> {{ $order->frame }} frame</p>
+                                <p><img class="order-component-img" src="/img/wheel_logo.png" alt=""> {{ $order->wheels }} wheels</p>
+                                <p><img class="order-component-img" src="/img/bars_logo.png" alt=""> {{ $order->handlebars }} handlebars</p>
                                 <form action="{{ route('orders.destroy', $order->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
