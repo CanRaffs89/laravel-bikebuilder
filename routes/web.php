@@ -15,7 +15,7 @@ Route::delete('/orders/{id}', [OrderController:: class, 'destroy'])->name('order
 
 Auth::routes([
     // Remove this to re-enable registration
-    'register' => false
+    // 'register' => false
 ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

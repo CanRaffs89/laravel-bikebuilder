@@ -18,9 +18,9 @@ class CreateOrdersTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('email');
-            $table->string('frame');
-            $table->string('wheels');
-            $table->string('handlebars');
+            $table->string('frame')->nullable();
+            $table->string('wheels')->nullable();
+            $table->string('handlebars')->nullable();
         });
     }
 

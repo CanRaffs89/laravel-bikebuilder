@@ -21,14 +21,34 @@ class OrderController extends Controller
         return view('orders.create');
     }
 
-    public function store() {
-        $order = new Order();
-        $order->name = request('name');
-        $order->email = request('email');
-        $order->frame = request('frame');
-        $order->wheels = request('wheels');
-        $order->handlebars = request('handlebars');
-        $order->save();
+    // public function store() {
+    //     $order = new Order();
+    //     $order->name = request('name');
+    //     $order->email = request('email');
+    //     $order->frame = request('frame');
+    //     $order->wheels = request('wheels');
+    //     $order->handlebars = request('handlebars');
+    //     $order->save();
+    //     return redirect('/')->with('success-msg', 'Thank you for your order!');
+    // }
+
+    public function store(Request $request){
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'frame' => 'required',
+            'wheels' => 'required',
+            'handlebars' => 'required'
+        ]);
+
+        Order::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'frame' => $request->frame,
+            'wheels' => $request->wheels,
+            'handlebars' => $request->handlebars
+        ]);
+        
         return redirect('/')->with('success-msg', 'Thank you for your order!');
     }
 

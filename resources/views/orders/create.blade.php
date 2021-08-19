@@ -3,6 +3,15 @@
 @section('content')
     <div class="outer-container flex flex-column margin-auto">
         <h2 class="margin-auto">Create New Order</h2>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif    
         <form action="/orders" method="POST" class="flex flex-column inner-container margin-auto margin-top-10">
             @csrf
             <div class="flex form-input justify-between margin-top-10">
